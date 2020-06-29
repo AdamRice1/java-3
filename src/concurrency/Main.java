@@ -3,6 +3,10 @@ package concurrency;
 public class Main {
    
     public static void main(String[] args) {
-         //run all of your threads from this main class.
+         Reasoning reason = new Reasoning();
+         reason.start();
+         TeamTC1 tc3 = new TeamTC1();
+         Thread t1 = new Thread(tc3);
+         t1.start();
     }
 }
