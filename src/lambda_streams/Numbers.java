@@ -11,81 +11,244 @@ class Numbers {
         System.out.println(nums);
 
         //Part II - refactor all of the class methods to accept lambda expressions. You can put the lambda functions directly inside the method calls, or defined them first, then pass them into the methods. give them the same names as the static methods, but add the word 'lambda' in front of every lambda function:
-        /* e.g.
+//
+        Calulate LambdaSumVar = (nums) -> {
+            int sum = 0;
+            for (int i = 0; i < nums.size(); i++) {
+                      sum = sum + nums.get(i);
+               }
+            System.out.println(sum);
+            return sum;
+        };
+        LambdaSumVar.Compute(nums);
 
-        added(() -> {});
+        Calulate LambdaMissVar = (nums) -> {
+            int sum = 0;
+            for (int i = 0; i < nums.size(); i++) {
+                sum = sum - nums.get(i);
+            }
+            System.out.println(sum);
+            return sum;
+        };
+        LambdaMissVar.Compute(nums);
 
-        OR
+        Calulate LambdaDivideVar = (nums) -> {
+            int sum = 0;
+            for (int i = 0; i < nums.size(); i++) {
+                sum = sum / nums.get(i);
+            }
+            System.out.println(sum);
+            return sum;
+        };
+        LambdaDivideVar.Compute(nums);
 
-        lambdaAdd = () -> {};
-        added(lambdaAdd);
+        Calulate LambdaMultiVar = (nums) -> {
+            int sum = 0;
+            for (int i = 0; i < nums.size(); i++) {
+                sum = sum + nums.get(i);
+            }
+            System.out.println(sum);
+            return sum;
+        };
+        LambdaMultiVar.Compute(nums);
 
-        isOdd(() -> {});
+        PickNumber LambdaOddValue = (int i) -> {
+            if(nums.get(i) % 2 == 1){
+                System.out.println("This is True");
+                return true;
+            }
+            else {
+                System.out.println("This is false");
+                return false;
+            }
+        };
+        LambdaOddValue.Pick(3);
 
-        OR
+        PickNumber LambdaEvenValue = (int i) -> {
+            if(nums.get(i) % 2 == 1){
+                System.out.println("This is false");
+                return true;
+            }
+            else {
+                System.out.println("This is true");
+                return false;
+            }
+        };
+        LambdaEvenValue.Pick(3);
 
-        lambdaOdd = () -> {};
-        isOdd(lambdaOdd);
-        etc...
+        PickNumber LambdaPrimeValue = (int i) -> {
+            for (int x = 2; x < Math.sqrt(i); x++) {
+                if (i % x == 0) {
+                    System.out.println("False");
+                    return false;
+                }
+            }
+            System.out.println("True");
+            return true;
+        };
+        LambdaPrimeValue.Pick(3);
 
-        */
+        Calulate LambdaMaxValue = (nums) -> {
+            int max = 0;
+            for(int i = 0; i < nums.size(); i++){
+                if(nums.get(i) > max){
+                    max = nums.get(i);
+                }
+            }
+            System.out.println(max);
+            return max;
+        };
+        LambdaMaxValue.Compute(nums);
+
+        Calulate LambdaMinValue = (nums) -> {
+            int min = 0;
+            for(int i = 0; i < nums.size(); i++){
+                if(nums.get(i) < min){
+                    min = nums.get(i);
+                }
+            }
+            System.out.println(min);
+            return min;
+        };
+        LambdaMinValue.Compute(nums);
+
+        Comp LambdaComp = (int i, int j) -> {
+            if(nums.get(i) > nums.get(j)){
+                System.out.println(1);
+                return 1;
+            }
+            else if(nums.get(j) > nums.get(i)){
+                System.out.println(-1);
+                return -1;
+            }
+            else {
+                System.out.println(0);
+                return 0;
+            }
+        };
+        LambdaComp.Comparing(1,3);
+
+        Work LambdaAppend = (int n) -> {
+            nums.add(n);
+            System.out.println(n);
+            return n;
+        };
+        LambdaAppend.AddingIn(3);
+    }
+    interface Work{
+        public int AddingIn(int n);
+    }
+    interface Comp{
+        public int Comparing(int i, int j);
+    }
+    interface Calulate{
+        public int Compute(List<Integer> nums);
+    }
+    interface PickNumber {
+        public boolean Pick(int i);
+    }
+    public void sayHello(){
+        System.out.println("Say Hello");
+    }
+    interface added2{
+        public void someMethod();
 
     }
-
     static boolean isOdd(int i) {
-        //determine if the value at the index i is odd.  return true if yes, return false if  no.
-        return false;
+        if(nums.get(i) % 2 == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     static boolean isEven(int i) {
-        //determine if the value at the index i is even.  return true if yes, return false if  no.
-        return false;
+        if(nums.get(i) % 0 == 1){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    static boolean isPrime(int i) {
-         //determine if the value at the index i is a prime number.  return true if yes, return false if no.
-         return false;
+    public static boolean isPrime(int i) {
+        for (int x = 2; x < Math.sqrt(i); x++) {
+            if (i % x == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     static int added() {
-        //add all the elements in the list.  return the sum.  
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            sum = sum + nums.get(i);
+        }
+        return sum;
     }
 
+
     static int subtracted() {
-        //subtract all the elements in the list. return the remainder.
-        return 0;
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum = sum - nums.get(i);
+        }
+        return sum;
     }
 
     static int multipled() {
-        //multiply all the elements in the list. and return the product.
-        return 0;
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum = sum * nums.get(i);
+        }
+        return sum;
     }
 
     static int divided() {
-        //multiply all the elements in the list. and return the product.
-        return 0;
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum = sum / nums.get(i);
+        }
+        return sum;
     }
 
     static int findMax() {
-         //return the maximum value in the list.
-        return 0;
+        int max = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums.get(i) > max){
+                max = nums.get(i);
+            }
+        }
+        return max;
     }
 
     static int findMin() {
-        //return the minimum value in the list.
-        return 0;
+        int min = 0;
+        for(int i = 0; i < nums.size(); i++){
+            if(nums.get(i) < min){
+                min = nums.get(i);
+            }
+        }
+        return min;
     }
 
     static int compare(int i, int j) {
-        //compare the values stored in the array at index position i and j.  
-        //if the value at i is greater, return 1.  if the value at j is greater, return -1.  if the two values are equal, return 0.
-        return 0;
+        if(nums.get(i) > nums.get(j)){
+            return 1;
+        }
+        else if(nums.get(j) > nums.get(i)){
+            return -1;
+        }
+        else {
+            return 0;
+        }
     }
 
     static int append(int n) {
-        //add a new value to the values list. return that value after adding it to the list.
-        return 0;
+        nums.add(n);
+        return n;
     }
 
 }
