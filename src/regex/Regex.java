@@ -40,23 +40,32 @@ class Regex {
         }
         System.out.println(bookCount);
         // 4.a Create an array of all the words besides the word 'sleepy'.  Each word does not have to be a separate element, although you can split it that way if you wish.  We just want an array that everything that is not 'sleepy'.  
-        ArrayList<String> awake = new ArrayList<String>();
+        ArrayList<String> sleep = new ArrayList<String>();
         String sleepy = "I felt sleepy because I saw the others were sleepy and because I knew I should feel sleepy, but I wasn't really sleepy.  If you're sleepy and you know it, clap your hands.  Keep on being sleepy until you actually become sleepy";
-            Pattern codePattern3 = Pattern.compile("\b(sleepy)\b");
-            Matcher codeMatch3 = codePattern3.matcher(sleepy);
-            while (codeMatch3.find()){
-                awake.add(codeMatch3.group());
-            }
-        System.out.println(awake);
+                String slept = sleepy.replaceAll("sleepy", "");
+                 //System.out.println(slept);
+                String[] awake = slept.split( " ", 0);
+        System.out.println(awake[1]);
         // 4.b combine the array that you just created into a string
         String not_sleepy; //punctuation marks will be here
-
+        StringBuffer sb = new StringBuffer();
+        for(int i = 0; i < awake.length; i++) {
+            sb.append(awake[i]);
+        }
+        String str = sb.toString();
+        System.out.println(str);
         //4.c remove the punctuation marks from the notSleepy string.
-        String notSleepy; //no punctuation marks should be here.
+        String notSleepy1 = str.replaceAll("," , "");
+        System.out.println(notSleepy1);
+        String notSleepy2 = notSleepy1.replaceAll("'" , "");
+        System.out.println(notSleepy2);
+        String notSleepy8 = notSleepy2.replace("." , "");
+        System.out.println(notSleepy8);
 
         //4.d Now replace all the occurences of 'sleepy' with the word 'happy'.  Call the new string happy.  
 
-        String happy;
+        String happy = sleepy.replaceAll("sleepy", "happy");
+        System.out.println(happy);
 
         //BONUS : 
         //5. You are looking for unicode arrow symbols in a string.  https://jrgraphix.net/r/Unicode/2190-21FF is a selection of unicode arrow symbols to aid you in your search.  Match all the codes that are arrows, and then print them out to the console.  They should be printing out as the arrow images.
