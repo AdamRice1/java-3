@@ -20,6 +20,7 @@ class Numbers {
             System.out.println(sum);
             return sum;
         };
+        System.out.println(LambdaSumVar.Compute(nums));
         LambdaSumVar.Compute(nums);
 
         Calulate LambdaMissVar = (nums) -> {
@@ -32,25 +33,25 @@ class Numbers {
         };
         LambdaMissVar.Compute(nums);
 
-        Calulate LambdaDivideVar = (nums) -> {
-            int sum = 0;
+        Calulate2 LambdaDivideVar = (nums) -> {
+            long sum = 0;
             for (int i = 0; i < nums.size(); i++) {
                 sum = sum / nums.get(i);
             }
             System.out.println(sum);
             return sum;
         };
-        LambdaDivideVar.Compute(nums);
+        LambdaDivideVar.Computer(nums);
 
-        Calulate LambdaMultiVar = (nums) -> {
-            int sum = 0;
+        Calulate2 LambdaMultiVar = (nums) -> {
+            long sum = 0;
             for (int i = 0; i < nums.size(); i++) {
                 sum = sum * nums.get(i);
             }
             System.out.println(sum);
             return sum;
         };
-        LambdaMultiVar.Compute(nums);
+        LambdaMultiVar.Computer(nums);
 
         PickNumber LambdaOddValue = (int i) -> {
             if(nums.get(i) % 2 == 1){
@@ -140,6 +141,9 @@ class Numbers {
     }
     interface Comp{
         public int Comparing(int i, int j);
+    }
+    interface Calulate2{
+        public long Computer(List<Integer> nums);
     }
     interface Calulate{
         public int Compute(List<Integer> nums);
