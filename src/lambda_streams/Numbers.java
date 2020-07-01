@@ -45,7 +45,7 @@ class Numbers {
         Calulate LambdaMultiVar = (nums) -> {
             int sum = 0;
             for (int i = 0; i < nums.size(); i++) {
-                sum = sum + nums.get(i);
+                sum = sum * nums.get(i);
             }
             System.out.println(sum);
             return sum;
